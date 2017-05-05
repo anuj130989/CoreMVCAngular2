@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script src="~/lib-npm/shim/client/shim.min.js"></script>
+    <script src="~/lib-npm/zone/dist/zone.js"></script>
+    
+    <script src="~/lib-npm/systemjs/system.src.js"></script>
+    @*<script src="~/lib-npm/rxjs/Rx.js"></script>
+    <script src="~/lib-npm/angular2/angular2.js"></script>
+    <script src="~/lib-npm/angular2/angular2-polyfills.js"></script>*@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  
+        @RenderBody()
+  
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
