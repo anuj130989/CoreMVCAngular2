@@ -16,15 +16,10 @@ var AuthenticationService = (function () {
         this.http = http;
     }
     AuthenticationService.prototype.login = function (username, password) {
-        return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
-            .map(function (response) {
-            // login successful if there's a jwt token in the response
-            var user = response.json();
-            if (user && user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
-        });
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        console.log("logging...");
+        this.http.post('/api/Authentication/Authenticate', JSON.stringify({ username: username, password: password }), { headers: headers }).subscribe(function (value) { return console.log(value); }, function (err) { return console.log(err); }, function () { return console.log("complete"); });
     };
     AuthenticationService.prototype.logout = function () {
         // remove user from local storage to log user out

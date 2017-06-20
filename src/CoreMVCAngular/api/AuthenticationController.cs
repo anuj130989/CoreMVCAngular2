@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoreMVCAngular.api
 {
     [Route("api/[controller]")]
-    public class AuthenticateController : Controller
+    public class AuthenticationController : Controller
     {
         /// <summary>
         /// Authenticate a user for provided username and password
@@ -18,7 +18,7 @@ namespace CoreMVCAngular.api
         /// <param name="password"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("Fetch")]
+        [Route("Authenticate")]
         public string Authenticate(string userName, string password)
         {
             return "login success";

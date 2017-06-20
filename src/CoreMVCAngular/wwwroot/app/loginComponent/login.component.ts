@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../services/index';
 
 @Component({
     selector: 'login-comp',
@@ -7,8 +8,11 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
     private model: any = {};
+    constructor(private authenticationService: AuthenticationService) { }
 
     login(loginForm : any) {
         console.log(loginForm);
+        debugger;
+        this.authenticationService.login("asd", "tsd");
     }
 }

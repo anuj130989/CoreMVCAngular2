@@ -9,12 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var index_1 = require('../services/index');
 var LoginComponent = (function () {
-    function LoginComponent() {
+    function LoginComponent(authenticationService) {
+        this.authenticationService = authenticationService;
         this.model = {};
     }
     LoginComponent.prototype.login = function (loginForm) {
         console.log(loginForm);
+        debugger;
+        this.authenticationService.login("asd", "tsd");
     };
     LoginComponent = __decorate([
         core_1.Component({
@@ -22,7 +26,7 @@ var LoginComponent = (function () {
             //moduleId: module.id,
             templateUrl: 'app/loginComponent/login.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [index_1.AuthenticationService])
     ], LoginComponent);
     return LoginComponent;
 }());
