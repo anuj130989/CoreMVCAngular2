@@ -3,7 +3,7 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
@@ -16,7 +16,8 @@
   "compileOnSave": true,
   "exclude": [
     "node_modules",
-   "@types",
+    "./node_modules",
+   "@types/index.d.ts",
     "wwwroot/lib"
   ]
 }
