@@ -1,7 +1,7 @@
 "use strict";
-var isScheduler_1 = require('../util/isScheduler');
-var ArrayObservable_1 = require('../observable/ArrayObservable');
-var mergeAll_1 = require('./mergeAll');
+var isScheduler_1 = require("../util/isScheduler");
+var ArrayObservable_1 = require("../observable/ArrayObservable");
+var mergeAll_1 = require("./mergeAll");
 /* tslint:disable:max-line-length */
 /**
  * Creates an output Observable which sequentially emits all values from every
@@ -55,7 +55,7 @@ var mergeAll_1 = require('./mergeAll');
 function concat() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     return this.lift.call(concatStatic.apply(void 0, [this].concat(observables)));
 }
@@ -114,7 +114,7 @@ exports.concat = concat;
 function concatStatic() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     var scheduler = null;
     var args = observables;

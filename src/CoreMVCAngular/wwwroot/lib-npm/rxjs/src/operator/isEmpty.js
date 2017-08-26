@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * If the source Observable is empty it returns an Observable that emits true, otherwise it emits false.
  *
@@ -34,7 +34,7 @@ var IsEmptyOperator = (function () {
 var IsEmptySubscriber = (function (_super) {
     __extends(IsEmptySubscriber, _super);
     function IsEmptySubscriber(destination) {
-        _super.call(this, destination);
+        return _super.call(this, destination) || this;
     }
     IsEmptySubscriber.prototype.notifyComplete = function (isEmpty) {
         var destination = this.destination;

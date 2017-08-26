@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var Notification_1 = require('../Notification');
+var Subscriber_1 = require("../Subscriber");
+var Notification_1 = require("../Notification");
 /**
  * @see {@link Notification}
  *
@@ -41,9 +41,10 @@ var ObserveOnSubscriber = (function (_super) {
     __extends(ObserveOnSubscriber, _super);
     function ObserveOnSubscriber(destination, scheduler, delay) {
         if (delay === void 0) { delay = 0; }
-        _super.call(this, destination);
-        this.scheduler = scheduler;
-        this.delay = delay;
+        var _this = _super.call(this, destination) || this;
+        _this.scheduler = scheduler;
+        _this.delay = delay;
+        return _this;
     }
     ObserveOnSubscriber.dispatch = function (arg) {
         var notification = arg.notification, destination = arg.destination;

@@ -4,18 +4,19 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = require('./Subject');
-var Subscription_1 = require('./Subscription');
+var Subject_1 = require("./Subject");
+var Subscription_1 = require("./Subscription");
 /**
  * @class AsyncSubject<T>
  */
 var AsyncSubject = (function (_super) {
     __extends(AsyncSubject, _super);
     function AsyncSubject() {
-        _super.apply(this, arguments);
-        this.value = null;
-        this.hasNext = false;
-        this.hasCompleted = false;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.value = null;
+        _this.hasNext = false;
+        _this.hasCompleted = false;
+        return _this;
     }
     AsyncSubject.prototype._subscribe = function (subscriber) {
         if (this.hasCompleted && this.hasNext) {

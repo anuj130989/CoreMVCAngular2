@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * Returns an Observable that skips all items emitted by the source Observable as long as a specified condition holds
  * true, but emits all further source items as soon as the condition becomes false.
@@ -38,10 +38,11 @@ var SkipWhileOperator = (function () {
 var SkipWhileSubscriber = (function (_super) {
     __extends(SkipWhileSubscriber, _super);
     function SkipWhileSubscriber(destination, predicate) {
-        _super.call(this, destination);
-        this.predicate = predicate;
-        this.skipping = true;
-        this.index = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.predicate = predicate;
+        _this.skipping = true;
+        _this.index = 0;
+        return _this;
     }
     SkipWhileSubscriber.prototype._next = function (value) {
         var destination = this.destination;

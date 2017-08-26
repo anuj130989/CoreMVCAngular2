@@ -4,9 +4,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var tryCatch_1 = require('../util/tryCatch');
-var errorObject_1 = require('../util/errorObject');
+var Subscriber_1 = require("../Subscriber");
+var tryCatch_1 = require("../util/tryCatch");
+var errorObject_1 = require("../util/errorObject");
 /* tslint:disable:max-line-length */
 /**
  * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from the previous item.
@@ -39,12 +39,13 @@ var DistinctUntilChangedOperator = (function () {
 var DistinctUntilChangedSubscriber = (function (_super) {
     __extends(DistinctUntilChangedSubscriber, _super);
     function DistinctUntilChangedSubscriber(destination, compare, keySelector) {
-        _super.call(this, destination);
-        this.keySelector = keySelector;
-        this.hasKey = false;
+        var _this = _super.call(this, destination) || this;
+        _this.keySelector = keySelector;
+        _this.hasKey = false;
         if (typeof compare === 'function') {
-            this.compare = compare;
+            _this.compare = compare;
         }
+        return _this;
     }
     DistinctUntilChangedSubscriber.prototype.compare = function (x, y) {
         return x === y;

@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var EmptyError_1 = require('../util/EmptyError');
+var Subscriber_1 = require("../Subscriber");
+var EmptyError_1 = require("../util/EmptyError");
 /* tslint:disable:max-line-length */
 /**
  * Returns an Observable that emits only the last item emitted by the source Observable.
@@ -48,17 +48,18 @@ var LastOperator = (function () {
 var LastSubscriber = (function (_super) {
     __extends(LastSubscriber, _super);
     function LastSubscriber(destination, predicate, resultSelector, defaultValue, source) {
-        _super.call(this, destination);
-        this.predicate = predicate;
-        this.resultSelector = resultSelector;
-        this.defaultValue = defaultValue;
-        this.source = source;
-        this.hasValue = false;
-        this.index = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.predicate = predicate;
+        _this.resultSelector = resultSelector;
+        _this.defaultValue = defaultValue;
+        _this.source = source;
+        _this.hasValue = false;
+        _this.index = 0;
         if (typeof defaultValue !== 'undefined') {
-            this.lastValue = defaultValue;
-            this.hasValue = true;
+            _this.lastValue = defaultValue;
+            _this.hasValue = true;
         }
+        return _this;
     }
     LastSubscriber.prototype._next = function (value) {
         var index = this.index++;

@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /* tslint:disable:max-line-length */
 /**
  * Combines the source Observable with other Observables to create an Observable
@@ -48,7 +48,7 @@ var subscribeToResult_1 = require('../util/subscribeToResult');
 function withLatestFrom() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i - 0] = arguments[_i];
+        args[_i] = arguments[_i];
     }
     var project;
     if (typeof args[args.length - 1] === 'function') {
@@ -76,19 +76,20 @@ var WithLatestFromOperator = (function () {
 var WithLatestFromSubscriber = (function (_super) {
     __extends(WithLatestFromSubscriber, _super);
     function WithLatestFromSubscriber(destination, observables, project) {
-        _super.call(this, destination);
-        this.observables = observables;
-        this.project = project;
-        this.toRespond = [];
+        var _this = _super.call(this, destination) || this;
+        _this.observables = observables;
+        _this.project = project;
+        _this.toRespond = [];
         var len = observables.length;
-        this.values = new Array(len);
+        _this.values = new Array(len);
         for (var i = 0; i < len; i++) {
-            this.toRespond.push(i);
+            _this.toRespond.push(i);
         }
         for (var i = 0; i < len; i++) {
             var observable = observables[i];
-            this.add(subscribeToResult_1.subscribeToResult(this, observable, observable, i));
+            _this.add(subscribeToResult_1.subscribeToResult(_this, observable, observable, i));
         }
+        return _this;
     }
     WithLatestFromSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
         this.values[outerIndex] = innerValue;

@@ -4,10 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var ArrayObservable_1 = require('../observable/ArrayObservable');
-var isArray_1 = require('../util/isArray');
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var ArrayObservable_1 = require("../observable/ArrayObservable");
+var isArray_1 = require("../util/isArray");
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 var none = {};
 /* tslint:disable:max-line-length */
 /**
@@ -56,7 +56,7 @@ var none = {};
 function combineLatest() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     var project = null;
     if (typeof observables[observables.length - 1] === 'function') {
@@ -89,11 +89,12 @@ exports.CombineLatestOperator = CombineLatestOperator;
 var CombineLatestSubscriber = (function (_super) {
     __extends(CombineLatestSubscriber, _super);
     function CombineLatestSubscriber(destination, project) {
-        _super.call(this, destination);
-        this.project = project;
-        this.active = 0;
-        this.values = [];
-        this.observables = [];
+        var _this = _super.call(this, destination) || this;
+        _this.project = project;
+        _this.active = 0;
+        _this.values = [];
+        _this.observables = [];
+        return _this;
     }
     CombineLatestSubscriber.prototype._next = function (observable) {
         this.values.push(none);

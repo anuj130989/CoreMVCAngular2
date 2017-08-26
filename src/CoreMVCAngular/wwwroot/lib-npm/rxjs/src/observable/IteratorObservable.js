@@ -4,9 +4,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var root_1 = require('../util/root');
-var Observable_1 = require('../Observable');
-var iterator_1 = require('../symbol/iterator');
+var root_1 = require("../util/root");
+var Observable_1 = require("../Observable");
+var iterator_1 = require("../symbol/iterator");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -15,12 +15,13 @@ var iterator_1 = require('../symbol/iterator');
 var IteratorObservable = (function (_super) {
     __extends(IteratorObservable, _super);
     function IteratorObservable(iterator, scheduler) {
-        _super.call(this);
-        this.scheduler = scheduler;
+        var _this = _super.call(this) || this;
+        _this.scheduler = scheduler;
         if (iterator == null) {
             throw new Error('iterator cannot be null.');
         }
-        this.iterator = getIterator(iterator);
+        _this.iterator = getIterator(iterator);
+        return _this;
     }
     IteratorObservable.create = function (iterator, scheduler) {
         return new IteratorObservable(iterator, scheduler);

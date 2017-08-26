@@ -1,5 +1,5 @@
 "use strict";
-var root_1 = require('../util/root');
+var root_1 = require("../util/root");
 function symbolIteratorPonyfill(root) {
     var Symbol = root.Symbol;
     if (typeof Symbol === 'function') {

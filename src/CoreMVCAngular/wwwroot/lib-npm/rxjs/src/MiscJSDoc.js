@@ -1,7 +1,7 @@
 "use strict";
-var Observable_1 = require('./Observable');
-require('./scheduler/MiscJSDoc');
-require('./observable/dom/MiscJSDoc');
+var Observable_1 = require("./Observable");
+require("./scheduler/MiscJSDoc");
+require("./observable/dom/MiscJSDoc");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}

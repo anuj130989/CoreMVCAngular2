@@ -1,5 +1,5 @@
 "use strict";
-var ConnectableObservable_1 = require('../observable/ConnectableObservable');
+var ConnectableObservable_1 = require("../observable/ConnectableObservable");
 /* tslint:disable:max-line-length */
 /**
  * Returns an Observable that emits the results of invoking a specified selector on items

@@ -1,23 +1,34 @@
-﻿import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+﻿import { Injectable, Injector, Inject } from '@angular/core';
+import { Http, Headers, Response, RequestOptions, RequestMethod } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { API_Urls, HeaderType } from '../constants/index';
+import { APIHeadersService } from './index';
 import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {
-    constructor(private http: Http) { }
+    header: APIHeadersService;
+    constructor(private http: Http, injector : Injector) {
+        setTimeout(() => {
+            this.header = injector.get(APIHeadersService);
+            console.log(this.header);
+        });
+        
+    }
 
-    login(username: string, password: string) {
+    login(loginModel: any, callback: Function) {
+        let headers = new Headers({ 'content-type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-        console.log("logging...");
-        this.http.post('/api/Authentication/Authenticate', JSON.stringify({ username: username, password: password }), { headers }).subscribe(
-            value => console.log(value),
+        this.http.post(API_Urls.AuthenticationAPI, JSON.stringify(loginModel), 
+            options).map(res => res.json()).subscribe(
+            value => {
+                callback(value);
+            },
             err => console.log(err),
             () => console.log("complete")
         );
-           
+
     }
 
     logout() {

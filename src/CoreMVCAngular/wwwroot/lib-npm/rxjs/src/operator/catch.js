@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /**
  * Catches errors on the observable to be handled by returning a new observable or throwing an error.
  * @param {function} selector a function that takes as arguments `err`, which is the error, and `caught`, which
@@ -40,9 +40,10 @@ var CatchOperator = (function () {
 var CatchSubscriber = (function (_super) {
     __extends(CatchSubscriber, _super);
     function CatchSubscriber(destination, selector, caught) {
-        _super.call(this, destination);
-        this.selector = selector;
-        this.caught = caught;
+        var _this = _super.call(this, destination) || this;
+        _this.selector = selector;
+        _this.caught = caught;
+        return _this;
     }
     // NOTE: overriding `error` instead of `_error` because we don't want
     // to have this flag this subscriber as `isStopped`.

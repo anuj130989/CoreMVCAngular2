@@ -4,16 +4,16 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isArray_1 = require('../util/isArray');
-var isPromise_1 = require('../util/isPromise');
-var PromiseObservable_1 = require('./PromiseObservable');
-var IteratorObservable_1 = require('./IteratorObservable');
-var ArrayObservable_1 = require('./ArrayObservable');
-var ArrayLikeObservable_1 = require('./ArrayLikeObservable');
-var iterator_1 = require('../symbol/iterator');
-var Observable_1 = require('../Observable');
-var observeOn_1 = require('../operator/observeOn');
-var observable_1 = require('../symbol/observable');
+var isArray_1 = require("../util/isArray");
+var isPromise_1 = require("../util/isPromise");
+var PromiseObservable_1 = require("./PromiseObservable");
+var IteratorObservable_1 = require("./IteratorObservable");
+var ArrayObservable_1 = require("./ArrayObservable");
+var ArrayLikeObservable_1 = require("./ArrayLikeObservable");
+var iterator_1 = require("../symbol/iterator");
+var Observable_1 = require("../Observable");
+var observeOn_1 = require("../operator/observeOn");
+var observable_1 = require("../symbol/observable");
 var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -23,9 +23,10 @@ var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 var FromObservable = (function (_super) {
     __extends(FromObservable, _super);
     function FromObservable(ish, scheduler) {
-        _super.call(this, null);
-        this.ish = ish;
-        this.scheduler = scheduler;
+        var _this = _super.call(this, null) || this;
+        _this.ish = ish;
+        _this.scheduler = scheduler;
+        return _this;
     }
     /**
      * Creates an Observable from an Array, an array-like object, a Promise, an

@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /* tslint:disable:max-line-length */
 /**
  * Projects each source value to an Observable which is merged in the output
@@ -74,12 +74,13 @@ var SwitchFirstMapOperator = (function () {
 var SwitchFirstMapSubscriber = (function (_super) {
     __extends(SwitchFirstMapSubscriber, _super);
     function SwitchFirstMapSubscriber(destination, project, resultSelector) {
-        _super.call(this, destination);
-        this.project = project;
-        this.resultSelector = resultSelector;
-        this.hasSubscription = false;
-        this.hasCompleted = false;
-        this.index = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.project = project;
+        _this.resultSelector = resultSelector;
+        _this.hasSubscription = false;
+        _this.hasCompleted = false;
+        _this.index = 0;
+        return _this;
     }
     SwitchFirstMapSubscriber.prototype._next = function (value) {
         if (!this.hasSubscription) {

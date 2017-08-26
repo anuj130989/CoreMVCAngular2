@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /* tslint:disable:max-line-length */
 /**
  * Perform a side effect for every emission on the source Observable, but return
@@ -72,11 +72,12 @@ var DoOperator = (function () {
 var DoSubscriber = (function (_super) {
     __extends(DoSubscriber, _super);
     function DoSubscriber(destination, nextOrObserver, error, complete) {
-        _super.call(this, destination);
+        var _this = _super.call(this, destination) || this;
         var safeSubscriber = new Subscriber_1.Subscriber(nextOrObserver, error, complete);
         safeSubscriber.syncErrorThrowable = true;
-        this.add(safeSubscriber);
-        this.safeSubscriber = safeSubscriber;
+        _this.add(safeSubscriber);
+        _this.safeSubscriber = safeSubscriber;
+        return _this;
     }
     DoSubscriber.prototype._next = function (value) {
         var safeSubscriber = this.safeSubscriber;

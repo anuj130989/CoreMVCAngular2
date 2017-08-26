@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * Buffers the source Observable values until the size hits the maximum
  * `bufferSize` given.
@@ -69,11 +69,12 @@ var BufferCountOperator = (function () {
 var BufferCountSubscriber = (function (_super) {
     __extends(BufferCountSubscriber, _super);
     function BufferCountSubscriber(destination, bufferSize, startBufferEvery) {
-        _super.call(this, destination);
-        this.bufferSize = bufferSize;
-        this.startBufferEvery = startBufferEvery;
-        this.buffers = [];
-        this.count = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.bufferSize = bufferSize;
+        _this.startBufferEvery = startBufferEvery;
+        _this.buffers = [];
+        _this.count = 0;
+        return _this;
     }
     BufferCountSubscriber.prototype._next = function (value) {
         var count = this.count++;

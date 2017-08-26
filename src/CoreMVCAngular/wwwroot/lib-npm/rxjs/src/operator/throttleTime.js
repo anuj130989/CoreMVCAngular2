@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var async_1 = require('../scheduler/async');
+var Subscriber_1 = require("../Subscriber");
+var async_1 = require("../scheduler/async");
 /**
  * Emits a value from the source Observable, then ignores subsequent source
  * values for `duration` milliseconds, then repeats this process.
@@ -68,9 +68,10 @@ var ThrottleTimeOperator = (function () {
 var ThrottleTimeSubscriber = (function (_super) {
     __extends(ThrottleTimeSubscriber, _super);
     function ThrottleTimeSubscriber(destination, duration, scheduler) {
-        _super.call(this, destination);
-        this.duration = duration;
-        this.scheduler = scheduler;
+        var _this = _super.call(this, destination) || this;
+        _this.duration = duration;
+        _this.scheduler = scheduler;
+        return _this;
     }
     ThrottleTimeSubscriber.prototype._next = function (value) {
         if (!this.throttled) {

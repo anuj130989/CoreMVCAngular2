@@ -1,3 +1,3 @@
 "use strict";
-var FromObservable_1 = require('./FromObservable');
+var FromObservable_1 = require("./FromObservable");
 exports.from = FromObservable_1.FromObservable.create;

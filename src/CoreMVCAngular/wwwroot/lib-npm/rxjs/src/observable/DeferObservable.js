@@ -4,9 +4,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Observable_1 = require('../Observable');
-var subscribeToResult_1 = require('../util/subscribeToResult');
-var OuterSubscriber_1 = require('../OuterSubscriber');
+var Observable_1 = require("../Observable");
+var subscribeToResult_1 = require("../util/subscribeToResult");
+var OuterSubscriber_1 = require("../OuterSubscriber");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -15,8 +15,9 @@ var OuterSubscriber_1 = require('../OuterSubscriber');
 var DeferObservable = (function (_super) {
     __extends(DeferObservable, _super);
     function DeferObservable(observableFactory) {
-        _super.call(this);
-        this.observableFactory = observableFactory;
+        var _this = _super.call(this) || this;
+        _this.observableFactory = observableFactory;
+        return _this;
     }
     /**
      * Creates an Observable that, on subscribe, calls an Observable factory to
@@ -76,9 +77,10 @@ exports.DeferObservable = DeferObservable;
 var DeferSubscriber = (function (_super) {
     __extends(DeferSubscriber, _super);
     function DeferSubscriber(destination, factory) {
-        _super.call(this, destination);
-        this.factory = factory;
-        this.tryDefer();
+        var _this = _super.call(this, destination) || this;
+        _this.factory = factory;
+        _this.tryDefer();
+        return _this;
     }
     DeferSubscriber.prototype.tryDefer = function () {
         try {

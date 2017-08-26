@@ -4,10 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = require('../scheduler/async');
-var isDate_1 = require('../util/isDate');
-var Subscriber_1 = require('../Subscriber');
-var TimeoutError_1 = require('../util/TimeoutError');
+var async_1 = require("../scheduler/async");
+var isDate_1 = require("../util/isDate");
+var Subscriber_1 = require("../Subscriber");
+var TimeoutError_1 = require("../util/TimeoutError");
 /**
  * @param {number} due
  * @param {Scheduler} [scheduler]
@@ -42,15 +42,16 @@ var TimeoutOperator = (function () {
 var TimeoutSubscriber = (function (_super) {
     __extends(TimeoutSubscriber, _super);
     function TimeoutSubscriber(destination, absoluteTimeout, waitFor, scheduler, errorInstance) {
-        _super.call(this, destination);
-        this.absoluteTimeout = absoluteTimeout;
-        this.waitFor = waitFor;
-        this.scheduler = scheduler;
-        this.errorInstance = errorInstance;
-        this.index = 0;
-        this._previousIndex = 0;
-        this._hasCompleted = false;
-        this.scheduleTimeout();
+        var _this = _super.call(this, destination) || this;
+        _this.absoluteTimeout = absoluteTimeout;
+        _this.waitFor = waitFor;
+        _this.scheduler = scheduler;
+        _this.errorInstance = errorInstance;
+        _this.index = 0;
+        _this._previousIndex = 0;
+        _this._hasCompleted = false;
+        _this.scheduleTimeout();
+        return _this;
     }
     Object.defineProperty(TimeoutSubscriber.prototype, "previousIndex", {
         get: function () {

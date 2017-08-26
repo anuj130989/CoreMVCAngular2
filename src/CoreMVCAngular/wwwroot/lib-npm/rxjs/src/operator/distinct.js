@@ -4,9 +4,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
-var Set_1 = require('../util/Set');
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
+var Set_1 = require("../util/Set");
 /**
  * Returns an Observable that emits all items emitted by the source Observable that are distinct by comparison from previous items.
  * If a keySelector function is provided, then it will project each value from the source observable into a new value that it will
@@ -45,12 +45,13 @@ var DistinctOperator = (function () {
 var DistinctSubscriber = (function (_super) {
     __extends(DistinctSubscriber, _super);
     function DistinctSubscriber(destination, keySelector, flushes) {
-        _super.call(this, destination);
-        this.keySelector = keySelector;
-        this.values = new Set_1.Set();
+        var _this = _super.call(this, destination) || this;
+        _this.keySelector = keySelector;
+        _this.values = new Set_1.Set();
         if (flushes) {
-            this.add(subscribeToResult_1.subscribeToResult(this, flushes));
+            _this.add(subscribeToResult_1.subscribeToResult(_this, flushes));
         }
+        return _this;
     }
     DistinctSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
         this.values.clear();

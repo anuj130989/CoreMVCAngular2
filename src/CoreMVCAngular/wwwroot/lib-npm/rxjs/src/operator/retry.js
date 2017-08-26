@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * Returns an Observable that mirrors the source Observable, resubscribing to it if it calls `error` and the
  * predicate returns true for that specific exception and retry count.
@@ -45,9 +45,10 @@ var RetryOperator = (function () {
 var RetrySubscriber = (function (_super) {
     __extends(RetrySubscriber, _super);
     function RetrySubscriber(destination, count, source) {
-        _super.call(this, destination);
-        this.count = count;
-        this.source = source;
+        var _this = _super.call(this, destination) || this;
+        _this.count = count;
+        _this.source = source;
+        return _this;
     }
     RetrySubscriber.prototype.error = function (err) {
         if (!this.isStopped) {

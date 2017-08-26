@@ -42,7 +42,7 @@ var Scheduler = (function () {
         if (delay === void 0) { delay = 0; }
         return new this.SchedulerAction(this, work).schedule(state, delay);
     };
-    Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
     return Scheduler;
 }());
+Scheduler.now = Date.now ? Date.now : function () { return +new Date(); };
 exports.Scheduler = Scheduler;

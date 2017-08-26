@@ -1,6 +1,6 @@
 "use strict";
-var multicast_1 = require('./multicast');
-var Subject_1 = require('../Subject');
+var multicast_1 = require("./multicast");
+var Subject_1 = require("../Subject");
 function shareSubjectFactory() {
     return new Subject_1.Subject();
 }

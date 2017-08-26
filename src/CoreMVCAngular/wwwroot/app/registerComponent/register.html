@@ -1,0 +1,29 @@
+﻿<div class="col-sm-6">
+    <form name="registerForm" (ngSubmit)="registerForm.form.valid && register(registerForm)" #registerForm="ngForm">
+        <div class="form-group">
+            <label>UserName:</label>
+            <input class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required type="text" />
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control" type="email" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <input class="form-control" type="text" name="phoneNumber" [(ngModel)]="model.phoneNumber" #xyz="ngModel" required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Register</button>
+            <button  [routerLink]="['/login']" class="btn btn-primary">LogIn</button>
+        </div>
+        <div class="form-group">
+            <ul *ngFor="let response of model.registerResponse">
+                <li>{{response.description}}</li>
+            </ul>
+        </div>
+    </form>
+</div>

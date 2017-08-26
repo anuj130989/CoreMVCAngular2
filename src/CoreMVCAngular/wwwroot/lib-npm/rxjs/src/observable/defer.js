@@ -1,3 +1,3 @@
 "use strict";
-var DeferObservable_1 = require('./DeferObservable');
+var DeferObservable_1 = require("./DeferObservable");
 exports.defer = DeferObservable_1.DeferObservable.create;

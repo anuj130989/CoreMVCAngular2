@@ -1,10 +1,10 @@
 ﻿import { Component } from '@angular/core';
+import { APIHeadersService } from './services/index';
 
 @Component({
     selector: 'core-app',
-    templateUrl: 'app/app.component.html',    
+    templateUrl: 'app/app.component.html',
+    providers: [APIHeadersService]
 })
 export class AppComponent {
-    public test: string = 'hello';
-
 }

@@ -4,10 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isArray_1 = require('../util/isArray');
-var ArrayObservable_1 = require('../observable/ArrayObservable');
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var isArray_1 = require("../util/isArray");
+var ArrayObservable_1 = require("../observable/ArrayObservable");
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /* tslint:disable:max-line-length */
 /**
  * Returns an Observable that mirrors the first source Observable to emit an item
@@ -20,7 +20,7 @@ var subscribeToResult_1 = require('../util/subscribeToResult');
 function race() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     // if the only argument is an array, it was most likely called with
     // `pair([obs1, obs2, ...])`
@@ -33,7 +33,7 @@ exports.race = race;
 function raceStatic() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     // if the only argument is an array, it was most likely called with
     // `pair([obs1, obs2, ...])`
@@ -65,10 +65,11 @@ exports.RaceOperator = RaceOperator;
 var RaceSubscriber = (function (_super) {
     __extends(RaceSubscriber, _super);
     function RaceSubscriber(destination) {
-        _super.call(this, destination);
-        this.hasFirst = false;
-        this.observables = [];
-        this.subscriptions = [];
+        var _this = _super.call(this, destination) || this;
+        _this.hasFirst = false;
+        _this.observables = [];
+        _this.subscriptions = [];
+        return _this;
     }
     RaceSubscriber.prototype._next = function (observable) {
         this.observables.push(observable);

@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var noop_1 = require('../util/noop');
+var Subscriber_1 = require("../Subscriber");
+var noop_1 = require("../util/noop");
 /**
  * Ignores all items emitted by the source Observable and only passes calls of `complete` or `error`.
  *
@@ -37,7 +37,7 @@ var IgnoreElementsOperator = (function () {
 var IgnoreElementsSubscriber = (function (_super) {
     __extends(IgnoreElementsSubscriber, _super);
     function IgnoreElementsSubscriber() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     IgnoreElementsSubscriber.prototype._next = function (unused) {
         noop_1.noop();

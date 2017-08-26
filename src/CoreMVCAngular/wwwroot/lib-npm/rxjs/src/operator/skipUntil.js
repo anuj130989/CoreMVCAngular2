@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /**
  * Returns an Observable that skips items emitted by the source Observable until a second Observable emits an item.
  *
@@ -39,10 +39,11 @@ var SkipUntilOperator = (function () {
 var SkipUntilSubscriber = (function (_super) {
     __extends(SkipUntilSubscriber, _super);
     function SkipUntilSubscriber(destination, notifier) {
-        _super.call(this, destination);
-        this.hasValue = false;
-        this.isInnerStopped = false;
-        this.add(subscribeToResult_1.subscribeToResult(this, notifier));
+        var _this = _super.call(this, destination) || this;
+        _this.hasValue = false;
+        _this.isInnerStopped = false;
+        _this.add(subscribeToResult_1.subscribeToResult(_this, notifier));
+        return _this;
     }
     SkipUntilSubscriber.prototype._next = function (value) {
         if (this.hasValue) {

@@ -4,9 +4,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isNumeric_1 = require('../util/isNumeric');
-var Observable_1 = require('../Observable');
-var async_1 = require('../scheduler/async');
+var isNumeric_1 = require("../util/isNumeric");
+var Observable_1 = require("../Observable");
+var async_1 = require("../scheduler/async");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -17,15 +17,16 @@ var IntervalObservable = (function (_super) {
     function IntervalObservable(period, scheduler) {
         if (period === void 0) { period = 0; }
         if (scheduler === void 0) { scheduler = async_1.async; }
-        _super.call(this);
-        this.period = period;
-        this.scheduler = scheduler;
+        var _this = _super.call(this) || this;
+        _this.period = period;
+        _this.scheduler = scheduler;
         if (!isNumeric_1.isNumeric(period) || period < 0) {
-            this.period = 0;
+            _this.period = 0;
         }
         if (!scheduler || typeof scheduler.schedule !== 'function') {
-            this.scheduler = async_1.async;
+            _this.scheduler = async_1.async;
         }
+        return _this;
     }
     /**
      * Creates an Observable that emits sequential numbers every specified

@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var Subscription_1 = require('../Subscription');
+var Subscriber_1 = require("../Subscriber");
+var Subscription_1 = require("../Subscription");
 /**
  * Returns an Observable that mirrors the source Observable, but will call a specified function when
  * the source terminates on complete or error.
@@ -35,8 +35,9 @@ var FinallyOperator = (function () {
 var FinallySubscriber = (function (_super) {
     __extends(FinallySubscriber, _super);
     function FinallySubscriber(destination, callback) {
-        _super.call(this, destination);
-        this.add(new Subscription_1.Subscription(callback));
+        var _this = _super.call(this, destination) || this;
+        _this.add(new Subscription_1.Subscription(callback));
+        return _this;
     }
     return FinallySubscriber;
 }(Subscriber_1.Subscriber));

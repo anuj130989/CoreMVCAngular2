@@ -1,5 +1,5 @@
 "use strict";
-var reduce_1 = require('./reduce');
+var reduce_1 = require("./reduce");
 /**
  * The Min operator operates on an Observable that emits numbers (or items that can be evaluated as numbers),
  * and when source Observable completes it emits a single item: the item with the smallest number.

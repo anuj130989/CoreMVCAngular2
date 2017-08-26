@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var EmptyObservable_1 = require('../observable/EmptyObservable');
+var Subscriber_1 = require("../Subscriber");
+var EmptyObservable_1 = require("../observable/EmptyObservable");
 /**
  * Returns an Observable that repeats the stream of items emitted by the source Observable at most count times,
  * on a particular Scheduler.
@@ -51,9 +51,10 @@ var RepeatOperator = (function () {
 var RepeatSubscriber = (function (_super) {
     __extends(RepeatSubscriber, _super);
     function RepeatSubscriber(destination, count, source) {
-        _super.call(this, destination);
-        this.count = count;
-        this.source = source;
+        var _this = _super.call(this, destination) || this;
+        _this.count = count;
+        _this.source = source;
+        return _this;
     }
     RepeatSubscriber.prototype.complete = function () {
         if (!this.isStopped) {

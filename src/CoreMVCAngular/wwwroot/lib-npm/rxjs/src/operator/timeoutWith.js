@@ -4,10 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = require('../scheduler/async');
-var isDate_1 = require('../util/isDate');
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var async_1 = require("../scheduler/async");
+var isDate_1 = require("../util/isDate");
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /* tslint:disable:max-line-length */
 /**
  * @param due
@@ -44,18 +44,19 @@ var TimeoutWithOperator = (function () {
 var TimeoutWithSubscriber = (function (_super) {
     __extends(TimeoutWithSubscriber, _super);
     function TimeoutWithSubscriber(destination, absoluteTimeout, waitFor, withObservable, scheduler) {
-        _super.call(this);
-        this.destination = destination;
-        this.absoluteTimeout = absoluteTimeout;
-        this.waitFor = waitFor;
-        this.withObservable = withObservable;
-        this.scheduler = scheduler;
-        this.timeoutSubscription = undefined;
-        this.index = 0;
-        this._previousIndex = 0;
-        this._hasCompleted = false;
-        destination.add(this);
-        this.scheduleTimeout();
+        var _this = _super.call(this) || this;
+        _this.destination = destination;
+        _this.absoluteTimeout = absoluteTimeout;
+        _this.waitFor = waitFor;
+        _this.withObservable = withObservable;
+        _this.scheduler = scheduler;
+        _this.timeoutSubscription = undefined;
+        _this.index = 0;
+        _this._previousIndex = 0;
+        _this._hasCompleted = false;
+        destination.add(_this);
+        _this.scheduleTimeout();
+        return _this;
     }
     Object.defineProperty(TimeoutWithSubscriber.prototype, "previousIndex", {
         get: function () {

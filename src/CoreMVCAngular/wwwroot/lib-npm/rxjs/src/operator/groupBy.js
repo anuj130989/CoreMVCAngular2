@@ -4,12 +4,12 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
-var Subscription_1 = require('../Subscription');
-var Observable_1 = require('../Observable');
-var Subject_1 = require('../Subject');
-var Map_1 = require('../util/Map');
-var FastMap_1 = require('../util/FastMap');
+var Subscriber_1 = require("../Subscriber");
+var Subscription_1 = require("../Subscription");
+var Observable_1 = require("../Observable");
+var Subject_1 = require("../Subject");
+var Map_1 = require("../util/Map");
+var FastMap_1 = require("../util/FastMap");
 /* tslint:disable:max-line-length */
 /**
  * Groups the items emitted by an Observable according to a specified criterion,
@@ -56,14 +56,15 @@ var GroupByOperator = (function () {
 var GroupBySubscriber = (function (_super) {
     __extends(GroupBySubscriber, _super);
     function GroupBySubscriber(destination, keySelector, elementSelector, durationSelector, subjectSelector) {
-        _super.call(this, destination);
-        this.keySelector = keySelector;
-        this.elementSelector = elementSelector;
-        this.durationSelector = durationSelector;
-        this.subjectSelector = subjectSelector;
-        this.groups = null;
-        this.attemptedToUnsubscribe = false;
-        this.count = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.keySelector = keySelector;
+        _this.elementSelector = elementSelector;
+        _this.durationSelector = durationSelector;
+        _this.subjectSelector = subjectSelector;
+        _this.groups = null;
+        _this.attemptedToUnsubscribe = false;
+        _this.count = 0;
+        return _this;
     }
     GroupBySubscriber.prototype._next = function (value) {
         var key;
@@ -156,10 +157,11 @@ var GroupBySubscriber = (function (_super) {
 var GroupDurationSubscriber = (function (_super) {
     __extends(GroupDurationSubscriber, _super);
     function GroupDurationSubscriber(key, group, parent) {
-        _super.call(this);
-        this.key = key;
-        this.group = group;
-        this.parent = parent;
+        var _this = _super.call(this) || this;
+        _this.key = key;
+        _this.group = group;
+        _this.parent = parent;
+        return _this;
     }
     GroupDurationSubscriber.prototype._next = function (value) {
         this._complete();
@@ -191,10 +193,11 @@ var GroupDurationSubscriber = (function (_super) {
 var GroupedObservable = (function (_super) {
     __extends(GroupedObservable, _super);
     function GroupedObservable(key, groupSubject, refCountSubscription) {
-        _super.call(this);
-        this.key = key;
-        this.groupSubject = groupSubject;
-        this.refCountSubscription = refCountSubscription;
+        var _this = _super.call(this) || this;
+        _this.key = key;
+        _this.groupSubject = groupSubject;
+        _this.refCountSubscription = refCountSubscription;
+        return _this;
     }
     GroupedObservable.prototype._subscribe = function (subscriber) {
         var subscription = new Subscription_1.Subscription();
@@ -216,9 +219,10 @@ exports.GroupedObservable = GroupedObservable;
 var InnerRefCountSubscription = (function (_super) {
     __extends(InnerRefCountSubscription, _super);
     function InnerRefCountSubscription(parent) {
-        _super.call(this);
-        this.parent = parent;
+        var _this = _super.call(this) || this;
+        _this.parent = parent;
         parent.count++;
+        return _this;
     }
     InnerRefCountSubscription.prototype.unsubscribe = function () {
         var parent = this.parent;

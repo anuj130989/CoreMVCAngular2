@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Observable_1 = require('../Observable');
+var Observable_1 = require("../Observable");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -13,9 +13,10 @@ var Observable_1 = require('../Observable');
 var ErrorObservable = (function (_super) {
     __extends(ErrorObservable, _super);
     function ErrorObservable(error, scheduler) {
-        _super.call(this);
-        this.error = error;
-        this.scheduler = scheduler;
+        var _this = _super.call(this) || this;
+        _this.error = error;
+        _this.scheduler = scheduler;
+        return _this;
     }
     /**
      * Creates an Observable that emits no items to the Observer and immediately

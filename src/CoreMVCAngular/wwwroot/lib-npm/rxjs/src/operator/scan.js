@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /* tslint:disable:max-line-length */
 /**
  * Applies an accumulator function over the source Observable, and returns each
@@ -76,11 +76,12 @@ var ScanOperator = (function () {
 var ScanSubscriber = (function (_super) {
     __extends(ScanSubscriber, _super);
     function ScanSubscriber(destination, accumulator, _seed, hasSeed) {
-        _super.call(this, destination);
-        this.accumulator = accumulator;
-        this._seed = _seed;
-        this.hasSeed = hasSeed;
-        this.index = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.accumulator = accumulator;
+        _this._seed = _seed;
+        _this.hasSeed = hasSeed;
+        _this.index = 0;
+        return _this;
     }
     Object.defineProperty(ScanSubscriber.prototype, "seed", {
         get: function () {

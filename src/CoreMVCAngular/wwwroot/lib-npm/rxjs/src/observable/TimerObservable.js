@@ -4,11 +4,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isNumeric_1 = require('../util/isNumeric');
-var Observable_1 = require('../Observable');
-var async_1 = require('../scheduler/async');
-var isScheduler_1 = require('../util/isScheduler');
-var isDate_1 = require('../util/isDate');
+var isNumeric_1 = require("../util/isNumeric");
+var Observable_1 = require("../Observable");
+var async_1 = require("../scheduler/async");
+var isScheduler_1 = require("../util/isScheduler");
+var isDate_1 = require("../util/isDate");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -18,11 +18,11 @@ var TimerObservable = (function (_super) {
     __extends(TimerObservable, _super);
     function TimerObservable(dueTime, period, scheduler) {
         if (dueTime === void 0) { dueTime = 0; }
-        _super.call(this);
-        this.period = -1;
-        this.dueTime = 0;
+        var _this = _super.call(this) || this;
+        _this.period = -1;
+        _this.dueTime = 0;
         if (isNumeric_1.isNumeric(period)) {
-            this.period = Number(period) < 1 && 1 || Number(period);
+            _this.period = Number(period) < 1 && 1 || Number(period);
         }
         else if (isScheduler_1.isScheduler(period)) {
             scheduler = period;
@@ -30,10 +30,11 @@ var TimerObservable = (function (_super) {
         if (!isScheduler_1.isScheduler(scheduler)) {
             scheduler = async_1.async;
         }
-        this.scheduler = scheduler;
-        this.dueTime = isDate_1.isDate(dueTime) ?
-            (+dueTime - this.scheduler.now()) :
+        _this.scheduler = scheduler;
+        _this.dueTime = isDate_1.isDate(dueTime) ?
+            (+dueTime - _this.scheduler.now()) :
             dueTime;
+        return _this;
     }
     /**
      * Creates an Observable that starts emitting after an `initialDelay` and

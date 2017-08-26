@@ -1,7 +1,7 @@
 "use strict";
-var ArrayObservable_1 = require('../observable/ArrayObservable');
-var mergeAll_1 = require('./mergeAll');
-var isScheduler_1 = require('../util/isScheduler');
+var ArrayObservable_1 = require("../observable/ArrayObservable");
+var mergeAll_1 = require("./mergeAll");
+var isScheduler_1 = require("../util/isScheduler");
 /* tslint:disable:max-line-length */
 /**
  * Creates an output Observable which concurrently emits all values from every
@@ -52,7 +52,7 @@ var isScheduler_1 = require('../util/isScheduler');
 function merge() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     return this.lift.call(mergeStatic.apply(void 0, [this].concat(observables)));
 }
@@ -121,7 +121,7 @@ exports.merge = merge;
 function mergeStatic() {
     var observables = [];
     for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
+        observables[_i] = arguments[_i];
     }
     var concurrent = Number.POSITIVE_INFINITY;
     var scheduler = null;

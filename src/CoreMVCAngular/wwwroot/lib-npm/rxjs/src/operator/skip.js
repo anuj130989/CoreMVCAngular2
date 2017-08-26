@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * Returns an Observable that skips `n` items emitted by an Observable.
  *
@@ -37,9 +37,10 @@ var SkipOperator = (function () {
 var SkipSubscriber = (function (_super) {
     __extends(SkipSubscriber, _super);
     function SkipSubscriber(destination, total) {
-        _super.call(this, destination);
-        this.total = total;
-        this.count = 0;
+        var _this = _super.call(this, destination) || this;
+        _this.total = total;
+        _this.count = 0;
+        return _this;
     }
     SkipSubscriber.prototype._next = function (x) {
         if (++this.count > this.total) {

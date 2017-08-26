@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscriber_1 = require('../Subscriber');
+var Subscriber_1 = require("../Subscriber");
 /**
  * Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
  * @param {function} predicate a function for determining if an item meets a specified condition.
@@ -36,12 +36,13 @@ var EveryOperator = (function () {
 var EverySubscriber = (function (_super) {
     __extends(EverySubscriber, _super);
     function EverySubscriber(destination, predicate, thisArg, source) {
-        _super.call(this, destination);
-        this.predicate = predicate;
-        this.thisArg = thisArg;
-        this.source = source;
-        this.index = 0;
-        this.thisArg = thisArg || this;
+        var _this = _super.call(this, destination) || this;
+        _this.predicate = predicate;
+        _this.thisArg = thisArg;
+        _this.source = source;
+        _this.index = 0;
+        _this.thisArg = thisArg || _this;
+        return _this;
     }
     EverySubscriber.prototype.notifyComplete = function (everyValueMatch) {
         this.destination.next(everyValueMatch);

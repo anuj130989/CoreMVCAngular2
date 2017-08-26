@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = require('../scheduler/async');
-var Subscriber_1 = require('../Subscriber');
+var async_1 = require("../scheduler/async");
+var Subscriber_1 = require("../Subscriber");
 /**
  * Ignores source values for `duration` milliseconds, then emits the most recent
  * value from the source Observable, then repeats this process.
@@ -71,10 +71,11 @@ var AuditTimeOperator = (function () {
 var AuditTimeSubscriber = (function (_super) {
     __extends(AuditTimeSubscriber, _super);
     function AuditTimeSubscriber(destination, duration, scheduler) {
-        _super.call(this, destination);
-        this.duration = duration;
-        this.scheduler = scheduler;
-        this.hasValue = false;
+        var _this = _super.call(this, destination) || this;
+        _this.duration = duration;
+        _this.scheduler = scheduler;
+        _this.hasValue = false;
+        return _this;
     }
     AuditTimeSubscriber.prototype._next = function (value) {
         this.value = value;

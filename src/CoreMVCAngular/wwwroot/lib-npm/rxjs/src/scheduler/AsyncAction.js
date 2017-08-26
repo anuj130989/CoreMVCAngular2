@@ -4,8 +4,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var root_1 = require('../util/root');
-var Action_1 = require('./Action');
+var root_1 = require("../util/root");
+var Action_1 = require("./Action");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -14,10 +14,11 @@ var Action_1 = require('./Action');
 var AsyncAction = (function (_super) {
     __extends(AsyncAction, _super);
     function AsyncAction(scheduler, work) {
-        _super.call(this, scheduler, work);
-        this.scheduler = scheduler;
-        this.work = work;
-        this.pending = false;
+        var _this = _super.call(this, scheduler, work) || this;
+        _this.scheduler = scheduler;
+        _this.work = work;
+        _this.pending = false;
+        return _this;
     }
     AsyncAction.prototype.schedule = function (state, delay) {
         if (delay === void 0) { delay = 0; }

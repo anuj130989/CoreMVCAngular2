@@ -4,10 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Observable_1 = require('../Observable');
-var tryCatch_1 = require('../util/tryCatch');
-var errorObject_1 = require('../util/errorObject');
-var AsyncSubject_1 = require('../AsyncSubject');
+var Observable_1 = require("../Observable");
+var tryCatch_1 = require("../util/tryCatch");
+var errorObject_1 = require("../util/errorObject");
+var AsyncSubject_1 = require("../AsyncSubject");
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -16,11 +16,12 @@ var AsyncSubject_1 = require('../AsyncSubject');
 var BoundNodeCallbackObservable = (function (_super) {
     __extends(BoundNodeCallbackObservable, _super);
     function BoundNodeCallbackObservable(callbackFunc, selector, args, scheduler) {
-        _super.call(this);
-        this.callbackFunc = callbackFunc;
-        this.selector = selector;
-        this.args = args;
-        this.scheduler = scheduler;
+        var _this = _super.call(this) || this;
+        _this.callbackFunc = callbackFunc;
+        _this.selector = selector;
+        _this.args = args;
+        _this.scheduler = scheduler;
+        return _this;
     }
     /* tslint:enable:max-line-length */
     /**
@@ -67,7 +68,7 @@ var BoundNodeCallbackObservable = (function (_super) {
         return function () {
             var args = [];
             for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i - 0] = arguments[_i];
+                args[_i] = arguments[_i];
             }
             return new BoundNodeCallbackObservable(func, selector, args, scheduler);
         };
@@ -83,7 +84,7 @@ var BoundNodeCallbackObservable = (function (_super) {
                 var handler = function handlerFn() {
                     var innerArgs = [];
                     for (var _i = 0; _i < arguments.length; _i++) {
-                        innerArgs[_i - 0] = arguments[_i];
+                        innerArgs[_i] = arguments[_i];
                     }
                     var source = handlerFn.source;
                     var selector = source.selector, subject = source.subject;
@@ -133,7 +134,7 @@ function dispatch(state) {
         var handler = function handlerFn() {
             var innerArgs = [];
             for (var _i = 0; _i < arguments.length; _i++) {
-                innerArgs[_i - 0] = arguments[_i];
+                innerArgs[_i] = arguments[_i];
             }
             var source = handlerFn.source;
             var selector = source.selector, subject = source.subject;

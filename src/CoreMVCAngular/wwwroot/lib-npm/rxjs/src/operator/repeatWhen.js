@@ -4,11 +4,11 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = require('../Subject');
-var tryCatch_1 = require('../util/tryCatch');
-var errorObject_1 = require('../util/errorObject');
-var OuterSubscriber_1 = require('../OuterSubscriber');
-var subscribeToResult_1 = require('../util/subscribeToResult');
+var Subject_1 = require("../Subject");
+var tryCatch_1 = require("../util/tryCatch");
+var errorObject_1 = require("../util/errorObject");
+var OuterSubscriber_1 = require("../OuterSubscriber");
+var subscribeToResult_1 = require("../util/subscribeToResult");
 /**
  * Returns an Observable that emits the same values as the source observable with the exception of a `complete`.
  * A `complete` will cause the emission of the Throwable that cause the complete to the Observable returned from
@@ -47,9 +47,10 @@ var RepeatWhenOperator = (function () {
 var RepeatWhenSubscriber = (function (_super) {
     __extends(RepeatWhenSubscriber, _super);
     function RepeatWhenSubscriber(destination, notifier, source) {
-        _super.call(this, destination);
-        this.notifier = notifier;
-        this.source = source;
+        var _this = _super.call(this, destination) || this;
+        _this.notifier = notifier;
+        _this.source = source;
+        return _this;
     }
     RepeatWhenSubscriber.prototype.complete = function () {
         if (!this.isStopped) {
