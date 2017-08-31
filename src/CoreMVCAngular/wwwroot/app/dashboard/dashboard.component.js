@@ -9,10 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var index_1 = require("../services/index");
 var DashboardComponent = (function () {
-    function DashboardComponent() {
-        this.model = {};
+    function DashboardComponent(dashboardService) {
+        this.dashboardService = dashboardService;
+        this.model = { dashboardList: [] };
+        this.getDashboardItems();
     }
+    DashboardComponent.prototype.updateDashboardList = function (dashboardList) {
+        this.model.dashboardList = dashboardList;
+    };
+    DashboardComponent.prototype.getDashboardItems = function () {
+        this.dashboardService.getAll(this.updateDashboardList.bind(this));
+    };
     return DashboardComponent;
 }());
 DashboardComponent = __decorate([
@@ -21,6 +30,6 @@ DashboardComponent = __decorate([
         //moduleId: module.id,
         templateUrl: 'app/dashboard/dashboard.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [index_1.DashboardService])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;

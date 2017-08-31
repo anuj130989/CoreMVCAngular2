@@ -10,6 +10,10 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using AspNet.Security.OpenIdConnect.Primitives;
+using DAL.interfaces;
+using DAL.Repository;
+using DAL;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace CoreMVCAngular
 {
@@ -41,6 +45,14 @@ namespace CoreMVCAngular
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddEntityFramework()
+             .AddEntityFrameworkSqlServer()
+             .AddDbContext<ERPContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ERPContext>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
             services.AddMvc();
         }
 
@@ -56,7 +68,7 @@ namespace CoreMVCAngular
 
             app.UseStaticFiles();
 
-            app.UseIdentity();
+            app.UseIdentity();            
             ConfigureAuth(app);
 
             app.UseMvc(routes =>

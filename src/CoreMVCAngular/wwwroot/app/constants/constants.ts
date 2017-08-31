@@ -2,6 +2,7 @@
     public static AuthenticationAPI: string = "/api/Authentication/Authenticate";
     public static AuthenticationAPI1: string = "/api/Authentication/Authenticate1";
     public static RegisterationAPI: string = "/api/Registration/Register";
+    public static DashboardGetAllAPI: string = "/api/Dashboard/GetAll";
 }
 
 export class HeaderType {

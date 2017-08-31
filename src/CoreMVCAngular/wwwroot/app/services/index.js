@@ -4,4 +4,5 @@ function __export(m) {
 }
 __export(require("./authentication.service"));
 __export(require("./registration.service"));
+__export(require("./dashboard.service"));
 __export(require("./headers.service"));

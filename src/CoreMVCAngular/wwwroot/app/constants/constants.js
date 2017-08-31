@@ -7,6 +7,7 @@ var API_Urls = (function () {
 API_Urls.AuthenticationAPI = "/api/Authentication/Authenticate";
 API_Urls.AuthenticationAPI1 = "/api/Authentication/Authenticate1";
 API_Urls.RegisterationAPI = "/api/Registration/Register";
+API_Urls.DashboardGetAllAPI = "/api/Dashboard/GetAll";
 exports.API_Urls = API_Urls;
 var HeaderType = (function () {
     function HeaderType() {
