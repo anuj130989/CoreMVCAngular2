@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../services/index';
+import { AuthenticationService, TokenProviderService } from '../services/index';
 import { Router } from '@angular/router';
 
 
@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
     private model: any = {};
-    constructor(private authenticationService: AuthenticationService, private router: Router) { }
+    constructor(private authenticationService: AuthenticationService, private router: Router, private tokenService: TokenProviderService) { }
 
     loginCallback(response: any) {
         if (response.statusIsSuccessful) {
+            let tokenResponse = JSON.parse(response.responseResult);
+            this.tokenService.setToken(tokenResponse.access_token);
             this.router.navigate(['/dashboard']);
         }
         else

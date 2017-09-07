@@ -6,3 +6,4 @@ __export(require("./authentication.service"));
 __export(require("./registration.service"));
 __export(require("./dashboard.service"));
 __export(require("./headers.service"));
+__export(require("./token.provider.service"));

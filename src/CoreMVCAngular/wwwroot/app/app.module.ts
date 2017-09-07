@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { AppComponent } from './app.component';
-import { AuthenticationService, RegistrationService, APIHeadersService, DashboardService } from './services/index';
+import { AuthenticationService, RegistrationService, APIHeadersService, DashboardService, TokenProviderService } from './services/index';
 import { LoginComponent } from './loginComponent/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './registerComponent/register.component';
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
     imports: [BrowserModule, FormsModule, routing, HttpModule],
     declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent],
-    providers: [AuthenticationService, APIHeadersService, BaseRequestOptions, RegistrationService, DashboardService],
+    providers: [AuthenticationService, APIHeadersService, BaseRequestOptions, RegistrationService, DashboardService, TokenProviderService],
     bootstrap: [AppComponent]
 })
 

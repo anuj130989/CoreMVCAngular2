@@ -13,6 +13,7 @@ using DAL.interfaces;
 using DAL.DbModels;
 using DAL;
 using System.Collections;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,6 +42,7 @@ namespace CoreMVCAngular.api
         /// <param name="password"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize]
         [Route("GetAll")]
         public IEnumerable GetAll()
         //public async Task<bool> Authenticate([FromBody]LogInModel logInModel)

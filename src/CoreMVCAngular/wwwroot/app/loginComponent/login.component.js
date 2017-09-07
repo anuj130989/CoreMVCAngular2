@@ -12,13 +12,16 @@ var core_1 = require("@angular/core");
 var index_1 = require("../services/index");
 var router_1 = require("@angular/router");
 var LoginComponent = (function () {
-    function LoginComponent(authenticationService, router) {
+    function LoginComponent(authenticationService, router, tokenService) {
         this.authenticationService = authenticationService;
         this.router = router;
+        this.tokenService = tokenService;
         this.model = {};
     }
     LoginComponent.prototype.loginCallback = function (response) {
         if (response.statusIsSuccessful) {
+            var tokenResponse = JSON.parse(response.responseResult);
+            this.tokenService.setToken(tokenResponse.access_token);
             this.router.navigate(['/dashboard']);
         }
         else
@@ -35,6 +38,6 @@ LoginComponent = __decorate([
         //moduleId: module.id,
         templateUrl: 'app/loginComponent/login.html',
     }),
-    __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
+    __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router, index_1.TokenProviderService])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;

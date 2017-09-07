@@ -29,10 +29,6 @@ var AuthenticationService = (function () {
             callback(value);
         }, function (err) { return console.log(err); }, function () { return console.log("complete"); });
     };
-    AuthenticationService.prototype.logout = function () {
-        // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-    };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([

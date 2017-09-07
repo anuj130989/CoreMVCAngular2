@@ -15,16 +15,15 @@ var index_2 = require("./index");
 require("rxjs/add/operator/map");
 var DashboardService = (function () {
     function DashboardService(http, injector) {
-        var _this = this;
         this.http = http;
-        setTimeout(function () {
-            _this.header = injector.get(index_2.APIHeadersService);
-        });
+        this.header = injector.get(index_2.APIHeadersService);
+        this.tokenService = injector.get(index_2.TokenProviderService);
     }
     DashboardService.prototype.getAll = function (callback) {
-        var headers = new http_1.Headers({ 'content-type': 'application/json' });
+        var accessToken = this.tokenService.getToken();
+        var headers = new http_1.Headers({ 'content-type': 'application/json', 'authorization': 'Bearer ' + accessToken });
         var options = new http_1.RequestOptions({ headers: headers });
-        this.http.get(index_1.API_Urls.DashboardGetAllAPI).map(function (res) { return res.json(); }).subscribe(function (value) { return callback(value); }, function (err) { return console.log(err); }, function () { return console.log("complete"); });
+        this.http.get(index_1.API_Urls.DashboardGetAllAPI, options).map(function (res) { return res.json(); }).subscribe(function (value) { return callback(value); }, function (err) { return console.log(err); }, function () { return console.log("complete"); });
     };
     return DashboardService;
 }());
