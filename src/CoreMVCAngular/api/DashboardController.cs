@@ -14,6 +14,8 @@ using DAL.DbModels;
 using DAL;
 using System.Collections;
 using Microsoft.AspNetCore.Authorization;
+using BLL.Interfaces;
+using BLL.Helpers;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,19 +26,17 @@ namespace CoreMVCAngular.api
     {
         private SignInManager<ApplicationUser> _signInManager;
         private IUnitOfWork _uow;
-        private IRepository<Dashboard> _repo;
+        private BLL.Interfaces.IModuleMenu _moduleMenu;
 
 
-        public DashboardController(SignInManager<ApplicationUser> signInManager, IUnitOfWork uow)
+        public DashboardController(IUnitOfWork uow)
         {
-            _signInManager = signInManager;
             _uow = uow;
-            _repo = new Repository<Dashboard>(uow.Db);
-            //_httpClient = httpClient;
+            _moduleMenu = new ModuleMenuHelper(_uow);
         }
 
         /// <summary>
-        /// Authenticate a user for provided username and password
+        /// Get all modules
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
@@ -47,7 +47,7 @@ namespace CoreMVCAngular.api
         public IEnumerable GetAll()
         //public async Task<bool> Authenticate([FromBody]LogInModel logInModel)
         {
-            return _repo.GetAll();
+            return _moduleMenu.GetModuleHierarchy();
         }
     }
 }

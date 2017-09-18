@@ -1,19 +1,15 @@
-﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using CoreMVCAngular.Data;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using AspNet.Security.OpenIdConnect.Primitives;
+﻿using CoreMVCAngular.Data;
+using DAL;
 using DAL.interfaces;
 using DAL.Repository;
-using DAL;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace CoreMVCAngular
 {
@@ -68,7 +64,7 @@ namespace CoreMVCAngular
 
             app.UseStaticFiles();
 
-            app.UseIdentity();            
+            app.UseIdentity();
             ConfigureAuth(app);
 
             app.UseMvc(routes =>
@@ -76,11 +72,11 @@ namespace CoreMVCAngular
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-routes.MapRoute(
-                    name: "spa-fallback",
-                    template: "{*url}",
-                    defaults: new { controller = "Home", action = "Index" }
-                 );
+                routes.MapRoute(
+                                    name: "spa-fallback",
+                                    template: "{*url}",
+                                    defaults: new { controller = "Home", action = "Index" }
+                                 );
 
 
                 routes.MapRoute(

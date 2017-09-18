@@ -11,10 +11,10 @@ namespace DAL
 
 
     // implementation
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext db;
-        private DbSet<TEntity> entities;
+        protected DbSet<TEntity> entities;
         public Repository(DbContext _db)
         {
             db = _db;

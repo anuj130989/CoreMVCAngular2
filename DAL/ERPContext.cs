@@ -14,7 +14,7 @@ namespace DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            new DashboardMap(modelBuilder.Entity<Dashboard>());
+            new ModuleMenuMap(modelBuilder.Entity<ModuleMenu>());
         }
     }
 }

@@ -6,29 +6,35 @@ using System.Text;
 
 namespace DAL.DbModels
 {
-    public class BaseEntity
+    //public class BaseEntity
+    //{
+    //    [Key]
+    //    public int Id
+    //    {
+    //        get;
+    //        set;
+    //    }
+    //}
+
+    public class ModuleMenu
     {
         [Key]
         public int Id
         {
             get;
             set;
-        }       
-    }
-
-    public class Dashboard : BaseEntity
-    {             
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Active { get; set; }
     }
 
-    public class DashboardMap
+    public class ModuleMenuMap
     {
-        public DashboardMap(EntityTypeBuilder<Dashboard> entityBuilder)
+        public ModuleMenuMap(EntityTypeBuilder<ModuleMenu> entityBuilder)
         {
             entityBuilder.HasKey(t => t.Id);
-            entityBuilder.Property(t => t.Name).IsRequired();            
+            entityBuilder.Property(t => t.Name).IsRequired();
             entityBuilder.Property(t => t.Active).IsRequired();
         }
     }
