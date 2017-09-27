@@ -11,8 +11,10 @@ var TokenProviderService = (function () {
     }
     TokenProviderService.prototype.setToken = function (inputToken) {
         this.token = inputToken;
+        sessionStorage.setItem('token', inputToken);
     };
     TokenProviderService.prototype.getToken = function () {
+        this.token = sessionStorage.getItem('token');
         return this.token;
     };
     return TokenProviderService;

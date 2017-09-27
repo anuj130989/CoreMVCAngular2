@@ -12,6 +12,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib-npm\ng2-bootstrap-modal\**" />
+    <Content Remove="wwwroot\lib-npm\ng2-bootstrap-modal\**" />
+    <EmbeddedResource Remove="wwwroot\lib-npm\ng2-bootstrap-modal\**" />
+    <None Remove="wwwroot\lib-npm\ng2-bootstrap-modal\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\app\dashboard\dashboard.component.css" />
     <Content Include="wwwroot\app\dashboard\dashboard.component.js" />
     <Content Include="wwwroot\app\dashboard\dashboard.component.ts" />
     <Content Include="wwwroot\app\dashboard\dashboard.html" />
@@ -32,6 +40,14 @@
     <Content Include="wwwroot\app\loginComponent\login.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="wwwroot\app\modalComponent\index.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\modalComponent\index.ts">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\modalComponent\modal.component.js" />
+    <Content Include="wwwroot\app\modalComponent\modal.component.ts" />
     <Content Include="wwwroot\app\services\dashboard.service.js" />
     <Content Include="wwwroot\app\services\dashboard.service.ts">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -41,6 +57,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\services\token.provider.service.ts" />
+    <Content Include="wwwroot\lib\componentStyles\dashboard.css" />
   </ItemGroup>
 
   <ItemGroup>

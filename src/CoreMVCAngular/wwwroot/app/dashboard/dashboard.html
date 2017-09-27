@@ -1,5 +1,10 @@
-﻿<div class="col-sm-12">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let dashboard of model.dashboardList">{{dashboard.name}}</div>
+﻿<!--<div class="col-sm-12">
+    <div class="container">
     </div>
-</div>
+    <div class="row" id="dashboardHeirarchy">
+        <div class="col-md-4 btn btn-sq-lg btn-primary dashboard-item" *ngFor="let dashboard of model.dashboardList">
+            {{dashboard.name}}
+        </div>
+    </div>
+</div>-->
+<button class="btn btn-default" (click)=getDashboardItems()>Show confirm</button>

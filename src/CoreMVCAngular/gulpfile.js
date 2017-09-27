@@ -1,4 +1,4 @@
-﻿/// <binding Clean='copy-all, copy-es6-shim' />
+﻿/// <binding Clean='copy-all, copy-ng2-bootstrap-modal' />
 /*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
@@ -27,6 +27,12 @@ gulp.task("copy-angular2", function () {
     return gulp.src(root_path.nmSrc + '/@angular/**/*.js', {
         base: root_path.nmSrc + '/@angular/**'
     }).pipe(gulp.dest(root_path.package_lib + '/@angular/*'));
+});
+
+gulp.task("copy-ng-bootstrap", function () {
+    return gulp.src(root_path.nmSrc + '/@ng-bootstrap/**/*.js', {
+        base: root_path.nmSrc + '/@ng-bootstrap/**'
+    }).pipe(gulp.dest(root_path.package_lib + '/@ng-bootstrap/*'));
 });
 
 gulp.task("copy-shim", function () {

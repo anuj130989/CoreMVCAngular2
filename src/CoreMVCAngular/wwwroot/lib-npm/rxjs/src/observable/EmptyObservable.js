@@ -52,7 +52,7 @@ var EmptyObservable = (function (_super) {
      * @see {@link of}
      * @see {@link throw}
      *
-     * @param {Scheduler} [scheduler] A {@link Scheduler} to use for scheduling
+     * @param {Scheduler} [scheduler] A {@link IScheduler} to use for scheduling
      * the emission of the complete notification.
      * @return {Observable} An "empty" Observable: emits only the complete
      * notification.

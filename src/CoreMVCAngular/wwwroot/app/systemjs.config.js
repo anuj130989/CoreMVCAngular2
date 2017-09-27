@@ -25,17 +25,22 @@
             '@angular/forms': 'lib-npm/@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'rxjs': 'lib-npm/rxjs'
+            'rxjs': 'lib-npm/rxjs',
+            '@ng-bootstrap/ng-bootstrap': 'lib-npm/@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
             app: {
-                main:'./test.js',
+                main: './test.js',
                 defaultExtension: 'js'
             },
             rxjs: {
                 defaultExtension: 'js'
-            }
+            },
+            'angular2-modal': { defaultExtension: 'js' },
+            'angular2-modal/plugins/bootstrap': { defaultExtension: 'js' }
         }
+
+
     });
 })(this);
