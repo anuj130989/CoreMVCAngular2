@@ -23,37 +23,17 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.updateDashboardList = function (dashboardList) {
         this.model.dashboardList = dashboardList;
     };
-    /*
-    showConfirm() {
-        let disposable = this.dialogService.addDialog(ModalComponent, {
-            title: 'Confirm title',
-            message: 'Confirm message'
-        })
-            .subscribe((isConfirmed) => {
-                //We get dialog result
-                if (isConfirmed) {
-                    alert('accepted');
-                }
-                else {
-                    alert('declined');
-                }
-            });
-        //We can close dialog calling disposable.unsubscribe();
-        //If dialog was not closed manually close it by timeout
-        setTimeout(() => {
-            disposable.unsubscribe();
-        }, 10000);
-    }*/
     DashboardComponent.prototype.getDashboardItems = function () {
         //this.modalBs.open();
-        debugger;
         var modalRef = this.modalService.open(index_2.NgbdModalContent);
         modalRef.componentInstance.name = 'World';
+        modalRef.componentInstance.modalTitle = 'Tets';
         modalRef.componentInstance.data = {
             foo: 'bar',
-            name: 'World'
+            name: 'World',
+            modalTitle: 'test title'
         };
-        //this.dashboardService.getAll(this.updateDashboardList.bind(this));
+        this.dashboardService.getAll(this.updateDashboardList.bind(this));
     };
     return DashboardComponent;
 }());

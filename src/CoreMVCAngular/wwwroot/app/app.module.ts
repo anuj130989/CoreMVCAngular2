@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { AppComponent } from './app.component';
-import { NgbdModalComponent, NgbdModalContent } from './modalComponent/index';
+import { NgbdModalContent } from './modalComponent/index';
 import { AuthenticationService, RegistrationService, APIHeadersService, DashboardService, TokenProviderService } from './services/index';
 import { LoginComponent } from './loginComponent/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,8 +16,8 @@ import { FormsModule } from '@angular/forms';
     imports: [BrowserModule
         , NgbModule.forRoot(),
         FormsModule, routing, HttpModule],
-    declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, NgbdModalComponent, NgbdModalContent],
-    providers: [AuthenticationService, APIHeadersService, BaseRequestOptions, RegistrationService, DashboardService, TokenProviderService, NgbdModalComponent],
+    declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, NgbdModalContent],
+    providers: [AuthenticationService, APIHeadersService, BaseRequestOptions, RegistrationService, DashboardService, TokenProviderService],
     bootstrap: [AppComponent],
     entryComponents: [NgbdModalContent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

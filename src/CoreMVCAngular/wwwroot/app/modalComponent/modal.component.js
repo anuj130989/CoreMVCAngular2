@@ -20,29 +20,15 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
 ], NgbdModalContent.prototype, "name", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], NgbdModalContent.prototype, "modalTitle", void 0);
 NgbdModalContent = __decorate([
     core_1.Component({
         selector: 'ngbd-modal-content',
-        template: "\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\">Hi there!</h4>\n      <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"activeModal.dismiss('Cross click')\">\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body\">\n      <p>Hello, {{name}}!</p>\n    </div>\n    <div class=\"modal-footer\">\n      <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"activeModal.close('Close click')\">Close</button>\n    </div>\n  "
+        templateUrl: 'app/modalComponent/modalComponent.html'
     }),
     __metadata("design:paramtypes", [ng_bootstrap_1.NgbActiveModal])
 ], NgbdModalContent);
 exports.NgbdModalContent = NgbdModalContent;
-var NgbdModalComponent = (function () {
-    function NgbdModalComponent(modalService) {
-        this.modalService = modalService;
-    }
-    NgbdModalComponent.prototype.open = function () {
-        var modalRef = this.modalService.open(NgbdModalContent);
-        modalRef.componentInstance.name = 'World';
-    };
-    return NgbdModalComponent;
-}());
-NgbdModalComponent = __decorate([
-    core_1.Component({
-        selector: 'ngbd-modal-component',
-        templateUrl: './modalComponent/modalComponent.html'
-    }),
-    __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
-], NgbdModalComponent);
-exports.NgbdModalComponent = NgbdModalComponent;
